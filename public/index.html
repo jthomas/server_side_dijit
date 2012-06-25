@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var dojoConfig = {
+                paths: {
+                    server_side: "../../server_side"
+                },
+                async: true
+            };
+        </script>
+
+        <script src="./js/dojo/dojo/dojo.js">
+        </script>
+        <script>
+        require(["dojo/parser", "dojo/dom"], function (parser, dom) {
+            parser.parse(dom.byId("parser"));
+        }); 
+    
+        </script>
+        <link rel="stylesheet" type="text/css" href="./js/dojo/dijit/themes/claro/claro.css">
+    </head>    
+    <body class="claro">    
+        <div id="parse">
+            <p>Normal:</p>
+            <span data-dojo-type="dijit/form/Button" data-dojo-mixins="server_side/_TemplatedMixin" data-dojo-props="label:'Label'"></span>
+            <span data-dojo-type="dijit/form/Button" data-dojo-props="label:'Label'"></span>
+          <!--  <input data-dojo-props="name:'horse', value: 'horse'" data-dojo-type='dijit/form/TextBox'>
+            <form data-dojo-type='dijit/form/Form'>
+                <input data-dojo-type='dijit/form/TextBox'>
+            </form>
+
+            <p>Server Side:</p>
+            <span data-dojo-type="server_side.Button" class="dijit dijitReset dijitInline dijitButton" role="presentation" data-dojo-props="label:'Label'" widgetid="server_side_Button_0"><span class="dijitReset dijitInline dijitButtonNode" data-dojo-attach-event="ondijitclick:_onClick" role="presentation"><span class="dijitReset dijitStretch dijitButtonContents" data-dojo-attach-point="titleNode,focusNode" role="button" aria-labelledby="server_side_Button_0_label" tabindex="0" id="server_side_Button_0" style="-webkit-user-select: none; "><span class="dijitReset dijitInline dijitIcon dijitNoIcon" data-dojo-attach-point="iconNode"></span><span class="dijitReset dijitToggleButtonIconChar">●</span><span class="dijitReset dijitInline dijitButtonText" id="server_side_Button_0_label" data-dojo-attach-point="containerNode">Label</span></span></span><input type="button" value="" class="dijitOffScreen" tabindex="-1" role="presentation" data-dojo-attach-point="valueNode"></span>
+            <form data-dojo-type="server_side.Form" data-dojo-attach-point="containerNode" data-dojo-attach-event="onreset:_onReset,onsubmit:_onSubmit" id="server_side_Form_0" widgetId="server_side_Form_0" style=""><div data-dojo-type="server_side.TextBox" class="dijit dijitReset dijitInline dijitLeft dijitTextBox" role="presentation" data-dojo-props="name:'horse'"><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" name="horse" type="text" tabIndex="0" id="server_side_TextBox_0" value="horses" /></div></div></form>
+
+            <form data-dojo-type="server_side.Form" data-dojo-attach-point="containerNode" data-dojo-attach-event="onreset:_onReset,onsubmit:_onSubmit" id="server_side_Form_0" widgetId="server_side_Form_0"><input type="text" /></form>
+            <div data-dojo-type="server_side.TextBox" class="dijit dijitReset dijitInline dijitLeft dijitTextBox" role="presentation" ><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" type="text" tabIndex="1" id="server_side_TextBox_1" value="" /></div></div>
+            -->
+        </div>
+    </body>    
+</html>
