@@ -393,6 +393,19 @@ define(
             // so they are picked up client-side...
             instance.domNode.setAttribute("data-dojo-type", dtype);
             instance.domNode.setAttribute("data-dojo-mixins", dmixins);
+
+            // Need to fix generated ids to be used in browser, template nodes may have 
+            // references to these values.
+            extra = extra || {};
+            extra.id = instance.id
+
+            // Render constructed widget properties back to a JSON string.
+            var json_props = djson.toJson(extra), 
+                snipped  = json_props.substr(1, json_props.length - 2);
+
+            // Add data-dojo-props back onto the widget, used to push attrs back into
+            // widgets when rendered client-side.
+            instance.domNode.setAttribute("data-dojo-props", snipped);
             
             // Ignore's widget ids, these will be re-generated automatically.
             instance.domNode.removeAttribute("widgetId");

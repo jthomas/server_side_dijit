@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Server Side Dijit</title>
         <script>
             var dojoConfig = {
                 paths: {
@@ -19,24 +20,72 @@
     
         </script>
         <link rel="stylesheet" type="text/css" href="./js/dojo/dijit/themes/claro/claro.css">
+        <style>
+
+            #parse {
+                width: 800px;
+                margin: 0 auto;
+            }
+
+            .server_side {
+                float: left;
+            }
+
+            .client_side {
+                float: right;
+            }
+
+            label {
+                display: block;
+                margin: 10px 0px 5px 0px;
+            }
+
+            p {
+                font-style: italic;
+            }
+
+            .dijitbutton {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .dijitslider {
+                width: 250px;
+            }
+        </style>
     </head>    
     <body class="claro">    
         <div id="parse">
-            <p>Normal:</p>
-            <span data-dojo-type="dijit/form/Button" data-dojo-mixins="server_side/_TemplatedMixin" data-dojo-props="label:'Label'"></span>
-            <span data-dojo-type="dijit/form/Button" data-dojo-props="label:'Label'"></span>
-          <!--  <input data-dojo-props="name:'horse', value: 'horse'" data-dojo-type='dijit/form/TextBox'>
-            <form data-dojo-type='dijit/form/Form'>
-                <input data-dojo-type='dijit/form/TextBox'>
-            </form>
+            <div class="server_side">
+                <p>Server Side:</p>
 
-            <p>Server Side:</p>
-            <span data-dojo-type="server_side.Button" class="dijit dijitReset dijitInline dijitButton" role="presentation" data-dojo-props="label:'Label'" widgetid="server_side_Button_0"><span class="dijitReset dijitInline dijitButtonNode" data-dojo-attach-event="ondijitclick:_onClick" role="presentation"><span class="dijitReset dijitStretch dijitButtonContents" data-dojo-attach-point="titleNode,focusNode" role="button" aria-labelledby="server_side_Button_0_label" tabindex="0" id="server_side_Button_0" style="-webkit-user-select: none; "><span class="dijitReset dijitInline dijitIcon dijitNoIcon" data-dojo-attach-point="iconNode"></span><span class="dijitReset dijitToggleButtonIconChar">●</span><span class="dijitReset dijitInline dijitButtonText" id="server_side_Button_0_label" data-dojo-attach-point="containerNode">Label</span></span></span><input type="button" value="" class="dijitOffScreen" tabindex="-1" role="presentation" data-dojo-attach-point="valueNode"></span>
-            <form data-dojo-type="server_side.Form" data-dojo-attach-point="containerNode" data-dojo-attach-event="onreset:_onReset,onsubmit:_onSubmit" id="server_side_Form_0" widgetId="server_side_Form_0" style=""><div data-dojo-type="server_side.TextBox" class="dijit dijitReset dijitInline dijitLeft dijitTextBox" role="presentation" data-dojo-props="name:'horse'"><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" name="horse" type="text" tabIndex="0" id="server_side_TextBox_0" value="horses" /></div></div></form>
+                <label>Input field with placeholder:</label>
+                <input data-dojo-props="placeholder:'Placeholder text'" data-dojo-type='dijit/form/TextBox' data-dojo-mixins="server_side/_TemplatedMixin">
+                <label>Input field with pre-specified value:</label>
+                <input data-dojo-props="value:'Pre-specified value'" data-dojo-type='dijit/form/TextBox' data-dojo-mixins="server_side/_TemplatedMixin">
+                <label>Checked radio button:</label>
+                <input type="radio" data-dojo-type="dijit/form/CheckBox" data-dojo-props="checked: true" data-dojo-mixins="server_side/_TemplatedMixin">
+                <label>Drop down list:</label>
+                <div data-dojo-type="dijit/form/HorizontalSlider" data-dojo-mixins="server_side/_TemplatedMixin" data-dojo-mixins="server_side/_TemplatedMixin">
+                </div>
+                <label>Sample Button:</label>
+                <button data-dojo-type="dijit/form/Button" data-dojo-props="label:'Sample Button'" data-dojo-mixins="server_side/_TemplatedMixin"></button>
+            </div>
+            <div class="client_side">
+                <p>Client Side:</p>
 
-            <form data-dojo-type="server_side.Form" data-dojo-attach-point="containerNode" data-dojo-attach-event="onreset:_onReset,onsubmit:_onSubmit" id="server_side_Form_0" widgetId="server_side_Form_0"><input type="text" /></form>
-            <div data-dojo-type="server_side.TextBox" class="dijit dijitReset dijitInline dijitLeft dijitTextBox" role="presentation" ><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" data-dojo-attach-point="textbox,focusNode" autocomplete="off" type="text" tabIndex="1" id="server_side_TextBox_1" value="" /></div></div>
-            -->
-        </div>
-    </body>    
+                <label>Input field with placeholder:</label>
+                <input data-dojo-props="placeholder:'Placeholder text'" data-dojo-type='dijit/form/TextBox'>
+                <label>Input field with pre-specified value:</label>
+                <input data-dojo-props="value:'Pre-specified value'" data-dojo-type='dijit/form/TextBox'>
+                <label>Checked radio button:</label>
+                <input type="radio" data-dojo-type="dijit/form/CheckBox" data-dojo-props="checked: true">
+                <label>Drop down list:</label>
+                <div data-dojo-type="dijit/form/HorizontalSlider">
+                </div>
+                <label>Sample Button:</label>
+                <button data-dojo-type="dijit/form/Button" data-dojo-props="label:'Sample Button'"></button>
+            </div>
+          </div>
+    </body>
 </html>
