@@ -394,6 +394,15 @@ define(
             instance.domNode.setAttribute("data-dojo-type", dtype);
             instance.domNode.setAttribute("data-dojo-mixins", dmixins);
 
+            // Attach points and events, if available.
+            if (params.dojoAttachPoint) {
+                instance.domNode.setAttribute("data-dojo-attach-point", params.dojoAttachPoint);
+            }
+
+            if (params.dojoAttachEvent) {
+                instance.domNode.setAttribute("data-dojo-attach-event", params.dojoAttachEvent);
+            }
+
             // Need to fix generated ids to be used in browser, template nodes may have 
             // references to these values.
             extra = extra || {};
