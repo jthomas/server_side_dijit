@@ -17,8 +17,7 @@ on the server side.
 Once the server has started, visit...
 http://localhost:3000
 
-How to use
---
+## How to use
 
 Using this middleware plugin in your own application requires the use of the middleware plugin
 alongside a custom client-side JavaScript mixin.

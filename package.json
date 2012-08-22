@@ -2,7 +2,7 @@
   "name": "server_side_dijit",
   "version": "0.0.1",
   "author": "James Thomas <james@jamesthom.as>",
-  "description": "Connect middleware plugin to render dijit widgets on the server side.",
+  "description": "Connect middleware plugin to render dijit widgets on the server side",
   "scripts": {
     "start": "node test/app.js"
   },
