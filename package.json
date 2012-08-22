@@ -1,0 +1,27 @@
+{
+  "name": "server_side_dijit",
+  "version": "0.0.1",
+  "author": "James Thomas <james@jamesthom.as>",
+  "description": "Connect middleware plugin to render dijit widgets on the server side.",
+  "scripts": {
+    "start": "node test/app.js"
+  },
+  "main": "./lib/server_side",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jthomas/server_side_dijit.git"
+  },
+  "keywords": [
+    "dojo",
+    "dijit",
+    "connect"
+  ],
+  "dependencies" : {
+    "connect"   :  "2.3.4",
+    "jsdom" :  "0.2.14"
+  },
+  "license": "MIT",
+  "engine": {
+    "node": "0.6.X"
+  }
+}

@@ -5,13 +5,13 @@
         <script>
             var dojoConfig = {
                 paths: {
-                    server_side: "../../server_side"
+                    server_side: "/server_side"
                 },
                 async: true
             };
         </script>
 
-        <script src="./js/dojo/dojo/dojo.js">
+        <script src="/dojo/dojo/dojo.js">
         </script>
         <script>
         require(["dojo/parser", "dojo/dom"], function (parser, dom) {
@@ -19,7 +19,7 @@
         }); 
     
         </script>
-        <link rel="stylesheet" type="text/css" href="./js/dojo/dijit/themes/claro/claro.css">
+        <link rel="stylesheet" type="text/css" href="/dojo/dijit/themes/claro/claro.css">
         <style>
 
             #parse {
@@ -72,6 +72,7 @@
                 <label>Sample Button:</label>
                 <button data-dojo-type="dijit/form/Button" data-dojo-props="label:'Sample Button'" data-dojo-mixins="server_side/_TemplatedMixin"></button>
                 -->
+                <div data-dojo-type="dijit/CalendarLite" data-dojo-mixins="server_side/_TemplatedMixin"></div>
             </div>
             <div class="client_side">
                 <p>Client Side:</p>
@@ -90,9 +91,8 @@
                 <button data-dojo-type="dijit/form/Button" data-dojo-props="label:'Sample Button'"></button> 
                 <div data-dojo-type="server_side/sample" data-dojo-mixins="server_side/_TemplatedMixin"></div>
                 -->
-                <div data-dojo-type="dijit/CalendarLite" data-dojo-mixins="server_side/_TemplatedMixin"></div>
 
-                <div data-dojo-type="dijit/CalendarLite" ></div>
+                <div data-dojo-type="dijit/CalendarLite"></div>
 
             </div>
           </div>
