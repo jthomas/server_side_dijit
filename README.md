@@ -1,12 +1,10 @@
-Server Side Dijit
-===
+# Server Side Dijit
 
 Middleware plugin for Connect that renders dijit widget templates, which are normally rendered client-side, on the server. 
 Returned pages are modified to include the generated server-side templates inline, with a client-side JavaScript plugin 
 to hook up the templates to the widget.
 
-Running the demo
---
+## Running the demo
 
 Run the following command line to start a test application, demonstrating a variety of widgets rendered
 on the server side. 
@@ -54,7 +52,6 @@ These widgets are instantiated in the server side environment and their rendered
 page. On the client-side, the mixin modifies widget construct to stop templated widgets from trying to 
 do the client-side rendering and simply hooking up the template node that are already present.
 
-Requirements
---
+## Requirements
 
 * The Dojo Toolkit (version 1.8) source distribution available locally.
