@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Server Side Dijit</title>
+        <script>
+            var dojoConfig = {
+                paths: {
+                    server_side: "/server_side"
+                },
+                async: true
+            };
+        </script>
+
+        <script src="/dojo/dojo/dojo.js">
+        </script>
+        <script>
+        require(["dojo/parser", "dojo/dom"], function (parser, dom) {
+            parser.parse(dom.byId("parser"));
+        }); 
+    
+        </script>
+        <link rel="stylesheet" type="text/css" href="/dojo/dijit/themes/claro/claro.css">
+        <style>
+
+            #parse {
+                width: 800px;
+                margin: 0 auto;
+            }
+
+            .server_side {
+                float: left;
+            }
+
+            .client_side {
+                float: right;
+            }
+
+            label {
+                display: block;
+                margin: 10px 0px 5px 0px;
+            }
+
+            p {
+                font-style: italic;
+            }
+
+            .dijitbutton {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .dijitslider {
+                width: 250px;
+            }
+        </style>
+    </head>    
+    <body class="claro">    
+        <div id="parse">
+            <div class="server_side">
+                <p>Server Side:</p>
+                <label>Input field with placeholder:</label>
+                <input data-dojo-props="placeholder:'Placeholder text'" data-dojo-type='dijit/form/TextBox' data-dojo-mixins="server_side/_TemplatedMixin">
+                <label>Input field with pre-specified value:</label>
+                <input data-dojo-props="value:'Pre-specified value'" data-dojo-type='dijit/form/TextBox' data-dojo-mixins="server_side/_TemplatedMixin">
+                <label>Checked radio button:</label>
+                <input type="radio" data-dojo-type="dijit/form/CheckBox" data-dojo-props="checked: true" data-dojo-mixins="server_side/_TemplatedMixin">
+                <label>Horizontal Slider:</label>
+                <div data-dojo-type="dijit/form/HorizontalSlider" data-dojo-mixins="server_side/_TemplatedMixin" data-dojo-mixins="server_side/_TemplatedMixin">
+                </div>
+                <label>Sample Button:</label>
+                <button data-dojo-type="dijit/form/Button" data-dojo-props="label:'Sample Button'" data-dojo-mixins="server_side/_TemplatedMixin"></button>
+                <label>Drop-down List:</label>
+                <select name="select_ss" data-dojo-mixins="server_side/_TemplatedMixin" data-dojo-type="dijit/form/Select">
+                    <option value="TN">Tennessee</option>
+                    <option value="VA" selected="selected">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="FL">Florida</option>
+                    <option value="CA">California</option>
+                </select>
+            </div>
+            <div class="client_side">
+                <p>Client Side:</p>
+                <label>Input field with placeholder:</label>
+                <input data-dojo-props="placeholder:'Placeholder text'" data-dojo-type='dijit/form/TextBox'>
+                <label>Input field with pre-specified value:</label>
+                <input data-dojo-props="value:'Pre-specified value'" data-dojo-type='dijit/form/TextBox'>
+                <label>Checked radio button:</label>
+                <input type="radio" data-dojo-type="dijit/form/CheckBox" data-dojo-props="checked: true">
+                <label>Horizontal Slider:</label>
+                <div data-dojo-type="dijit/form/HorizontalSlider">
+                </div>
+                <label>Sample Button:</label>
+                <button data-dojo-type="dijit/form/Button" data-dojo-props="label:'Sample Button'"></button> 
+                <label>Drop-down List:</label>
+                <select name="select_client" data-dojo-type="dijit/form/Select">
+                    <option value="TN">Tennessee</option>
+                    <option value="VA" selected="selected">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="FL">Florida</option>
+                    <option value="CA">California</option>
+                </select>
+            </div>
+          </div>
+    </body>
+</html>

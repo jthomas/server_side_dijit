@@ -8,10 +8,11 @@ define(["dijit/registry", "dojo/_base/lang", "dijit/main"], function (registry, 
         getUniqueId: function(/*String*/widgetType){
 			// summary:
 			//		Generates a unique id for a given widgetType
+            //		Add "ss" flag to ensure generated ids don't clash
 
 			var id;
 			do{
-				id = widgetType + "_" +
+				id = widgetType + "_ss_" +
 					(widgetType in this._widgetTypeCtr ?
 						++this._widgetTypeCtr[widgetType] : this._widgetTypeCtr[widgetType] = 0);
 			}while(this._hash[id]);

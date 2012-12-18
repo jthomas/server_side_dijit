@@ -1,10 +1,11 @@
 define(["dojo/_base/declare", "dijit/_WidgetBase", "dijit/_TemplatedMixin"], function (declare, _WidgetBase, _TemplatedMixin) {
 
-    var old = _TemplatedMixin.prototype.buildRendering;
+    var br = _TemplatedMixin.prototype.buildRendering,
+        fc = _TemplatedMixin.prototype._fillContent;
         
     _TemplatedMixin.prototype.buildRendering = function () {
         if (!this.serverSide) {
-            return old.call(this);
+            return br.call(this);
         }
 
         var node = this.srcNodeRef;
@@ -22,9 +23,18 @@ define(["dojo/_base/declare", "dijit/_WidgetBase", "dijit/_TemplatedMixin"], fun
         this._attachTemplateNodes(node, function(n,p){ return n.getAttribute(p); });
 
         this._beforeFillContent();		// hook for _WidgetsInTemplateMixin
+
+        // Don't pass srcRefNode reference as it doesn't exist.
+	    this._fillContent();
     };
 
-
+    // Override to turn into a no-op, we don't want to attach source
+    // ref nodes client side as it's been done on the server.
+    _TemplatedMixin.prototype._fillContent = function () {
+        if (!this.serverSide) {
+            return fc.apply(this, arguments);
+        }
+    };
 
     return declare(null, {
 
@@ -43,7 +53,7 @@ define(["dojo/_base/declare", "dijit/_WidgetBase", "dijit/_TemplatedMixin"], fun
 
             // DFS to find nodes which don't have an associated dojo-type, don't descend
             // into children of these.
-            var current = rootNode.firstChild, nodes = []; 
+            var current = rootNode.firstChild, nodes = [rootNode]; 
 
             while(current && current !== rootNode) {
                 // Ignore any nodes that are declarative widgets or text nodes.

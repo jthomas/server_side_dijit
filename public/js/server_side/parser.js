@@ -408,9 +408,28 @@ define(
             extra = extra || {};
             extra.id = instance.id
 
+            // Nasty hack to simulate "instanceof" using dojo/declare's
+            // declaredClass name. We don't want to pull in the entire dijit 
+            // package just to compare instances...
+            var declared_class = function (instance, name) {
+                while (instance) {
+                    if (instance.declaredClass === name) return true;
+                    instance = instance.__proto__;
+                }
+            }
+
+            // Edge-case for widgets inheriting from _FormSelectWidget,
+            // pass constructed options as direct parameter, original source
+            // reference nodes won't exist. 
+            if (declared_class(instance, "dijit.form._FormSelectWidget")) {
+                extra.options = instance.options;
+                extra.options._parent = null;
+            }
+
             // Render constructed widget properties back to a JSON string.
             var json_props = djson.toJson(extra), 
                 snipped  = json_props.substr(1, json_props.length - 2);
+
 
             // Add data-dojo-props back onto the widget, used to push attrs back into
             // widgets when rendered client-side.
